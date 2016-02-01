@@ -18,9 +18,6 @@
   ],
   "author": "Chris Wilson",
   "license": "MIT",
-  "browserify": {
-    "transform": ["node-lessify"]
-  },
   "bugs": {
     "url": "https://github.com/TimeMagazine/social-buttons/issues"
   },
