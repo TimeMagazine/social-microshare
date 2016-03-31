@@ -1,5 +1,7 @@
-social-buttons
+Social Microshare Buttons
 ==============
+
+v0.0.3
 
 Customizable social media buttons for microsharing content on Twitter, Facebook, LinkedIn and Pinterest, compiled with Browserify.
 
