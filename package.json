@@ -1,6 +1,6 @@
 {
-  "name": "social-buttons",
-  "version": "0.0.3",
+  "name": "social-microshare",
+  "version": "0.0.4",
   "description": "Customizable social media buttons for microsharing",
   "main": "index.js",
   "scripts": {
