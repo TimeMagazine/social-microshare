@@ -1,9 +1,53 @@
-      <div id="share_container">
-        <div id="share_message"></div>
-        <div id="share_buttons" style="vertical-align: top">
-          <img class="facebook" id="fbbutton" src="http://time-static-shared.s3-website-us-east-1.amazonaws.com/interactives/assets/img/facebook.png" />
-          <img class="twitter" id="twbutton" src="http://time-static-shared.s3-website-us-east-1.amazonaws.com/interactives/assets/img/twitter.png" />
-          <img class="linkedin" id="libutton" src="http://time-static-shared.s3-website-us-east-1.amazonaws.com/interactives/assets/img/linkedin.png" />
-          <img class="pinterest" id="pibutton" src="http://time-static-shared.s3-website-us-east-1.amazonaws.com/interactives/assets/img/pinterest.png" />
-        </div>
-      </div>
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>TIME Social Microshare Demo</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+	<body>
+		<div id="social-buttons-color"></div>
+		<div id="social-buttons-gray"></div>
+		<script type="text/javascript" src="dist/social-microshare.js"></script>
+		<script>
+var sm1 = social_microshare("#social-buttons-color", ["twitter", "linkedin", "reddit", "pinterest", "facebook"]);
+
+sm1.twitter({
+	title: "I just shared this from social_microshare!"
+});
+
+sm1.facebook({
+	app_id: "[INSERT YOUR FACEBOOK APP ID]",
+	title: "Social Microshare, Brought to You By TIME",
+	image: "https://timedotcom.files.wordpress.com/2017/03/truth-covers-diptych-3.jpg?w=720&quality=85",
+	description: "This is a cool library!"
+});
+
+sm1.pinterest({
+	title: "Social Microshare, Brought to You By TIME",
+	image: "https://timedotcom.files.wordpress.com/2017/03/truth-covers-diptych-3.jpg?w=720&quality=85"
+});
+
+sm1.linkedin({
+	title: "Social Microshare, Brought to You By TIME",
+	description: "A handy Javascript library"
+});
+
+sm1.reddit({
+	title: "Find Your Birthday in Pi!",
+	link: "http://time.com/4697605/pi-day-2017-birthday/"
+});
+
+var sm2 = social_microshare("#social-buttons-gray", ["linkedin", "twitter", "pinterest", "reddit", "facebook"], true);
+
+sm2.all({
+	title: "This is My Favorite TIME Cover Ever!",
+	image: "https://timedotcom.files.wordpress.com/2017/03/truth-covers-diptych-3.jpg?w=720&quality=85",
+	description: "A blast from the past",
+	link: "http://time.com/4709920/donald-trump-truth-time-cover/"
+});
+
+		</script>
+	</body>
+</html>

@@ -1,11 +1,75 @@
-#share_buttons {
-	background-color: #EEE;
-	padding: 15px;
+.social_microshare {
+	@gray: #808080;
 
-	img {
-		width: 30px;
-		height: 31px;
-		margin-left: 4px;
+	.social_icon {
+		border-radius: 100%;
+		height: 32px;
+		width: 32px;
+		display: inline-block;
+		margin-right: 5px;
+		position: relative;
 		cursor: pointer;
+		box-sizing: border-box;
+
+		svg {
+			position: absolute;
+			fill: #FFF;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%,-50%);		
+		}
+	}
+
+	.facebook {
+		background-color: #3b5998;
+		svg {
+			top: 55%;
+		}
+	}
+
+	.twitter {
+		background-color: #4099ff;
+		svg {
+			top: 55%;
+		}
+	}
+
+	.pinterest {
+		background-color: #bd081c;
+		svg {
+			height: 18px;
+			width: 18px;			
+		}
+	}
+
+	.linkedin {
+		background-color: #007bb6;
+		svg {
+			top: 47.5%;
+		}
+	}
+
+	.reddit {
+		border: 2px solid #000;
+		background-color: #FFFFFF;
+	    width: 31.5px;
+	    svg {
+	    	fill: #000;
+	    	height: 18px;
+	    	width: 18px;	    	
+	    }
+	}
+
+	.gray {
+		background-color: @gray;
+	}
+
+	.reddit.gray {
+		background-color: #FFF;
+		border: 2px solid @gray;
+
+		svg {
+			fill: @gray;
+		}		
 	}
 }	

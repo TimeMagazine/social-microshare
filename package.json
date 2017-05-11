@@ -1,6 +1,6 @@
 {
   "name": "social-microshare",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Customizable social media buttons for microsharing",
   "main": "index.js",
   "scripts": {
@@ -8,18 +8,47 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/TimeMagazine/social-buttons.git"
+    "url": "git://github.com/TimeMagazine/social-microshare.git"
   },
+  "devDependencies": {
+    "autoprefixer": "^6.7.7",
+    "babel-core": "6.24.0",
+    "babel-loader": "6.4.1",
+    "babel-plugin-add-module-exports": "0.2.1",
+    "babel-plugin-transform-decorators-legacy": "1.3.4",
+    "babel-plugin-transform-runtime": "6.23.0",
+    "babel-preset-es2015": "6.24.0",
+    "css-loader": "0.27.3",
+    "dsv-loader": "2.0.0",
+    "file-loader": "^0.11.1",
+    "fs-extra": "2.1.2",
+    "less": "^2.7.2",
+    "less-loader": "4.0.2",
+    "node-sass": "4.5.1",
+    "postcss-loader": "^1.3.3",
+    "sass-loader": "6.0.3",
+    "style-loader": "0.16.0",
+    "underscore-template-loader": "0.7.3",
+    "url-loader": "^0.5.8",
+    "webpack": "2.3.2",
+    "webpack-dev-server": "2.4.2"
+  },  
   "keywords": [
-    "social",
-    "media",
+    "social media",
     "twitter",
-    "facebook"
+    "facebook",
+    "linkedin",
+    "pinterest",
+    "reddit"
   ],
+  "scripts": {
+    "build": "./node_modules/.bin/webpack --config webpack/dev.config.js",
+    "minify": "./node_modules/.bin/webpack --config webpack/production.config.js"
+  },  
   "author": "Chris Wilson",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/TimeMagazine/social-buttons/issues"
+    "url": "https://github.com/TimeMagazine/social-microshare/issues"
   },
-  "homepage": "https://github.com/TimeMagazine/social-buttons"
+  "homepage": "https://github.com/TimeMagazine/social-microshare"
 }
