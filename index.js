@@ -1,5 +1,6 @@
 (function (factory) {
 	var root = process.browser? window : module.exports;
+	console.log(root);
 	factory(root);
 }(function (exports) { 'use strict';
 	var social_microshare = function(container_selector, services, grayscale) {
