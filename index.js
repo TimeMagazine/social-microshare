@@ -1,7 +1,9 @@
-module.exports = function(container_selector, services, grayscale) {
-	require("./styles.less");
+module.exports = function(container_selector, services, opts) {
+	require("./styles.scss");
 
-	var templates = {
+	opts = opts || {};
+
+	let templates = {
 		twitter: require("./svgs/twitter.html"),
 		facebook: require("./svgs/facebook.html"),
 		linkedin: require("./svgs/linkedin.html"),
@@ -9,7 +11,7 @@ module.exports = function(container_selector, services, grayscale) {
 		reddit: require("./svgs/reddit.html")
 	};
 
-	var methods = {
+	let methods = {
 		twitter: require("./lib/twitter"),
 		facebook: require("./lib/facebook"),
 		linkedin: require("./lib/linkedin"),
@@ -17,11 +19,16 @@ module.exports = function(container_selector, services, grayscale) {
 		reddit: require("./lib/reddit")
 	};
 
-	var share = {};	
+	let share = {};
+	let parent;
 
-	var parent = document.querySelector(container_selector);
+	if (typeof container_selector == "object") {
+		parent = container_selector;
+	} else {
+		parent = document.querySelector(container_selector);
+	}
 
-	var div = document.createElement("div");
+	let div = document.createElement("div");
 	div.className = "social_microshare";
 	parent.appendChild(div);
 
@@ -31,13 +38,30 @@ module.exports = function(container_selector, services, grayscale) {
 			console.log("Couldn't find icon for", service + ". Options are", Object.keys(templates).join(","));
 			return;
 		}
-		var el = document.createElement("div");
-		el.innerHTML = templates[service]();
-		el.className = "social_icon " + service;
-		if (grayscale) {
-			el.className += " gray";
+
+		let el; // icon
+
+		if (opts.images && opts.images[service]) {
+			if (typeof opts.images[service] === "string") {
+				el = document.querySelector(opts.images[service]);
+			} else {
+				el = opts.images[service];
+			}
+		} else {
+			el = document.createElement("div");
+			el.innerHTML = templates[service]();
+			el.className = "social_icon " + service;
+
+			if (opts.background && opts.background === "gray") {
+				el.className += " gray";
+			}
+
+			if (opts.background && opts.background === "none" || opts.background && opts.background === "transparent") {
+				el.className += " transparent";
+			}
+			div.appendChild(el);
 		}
-		div.appendChild(el);
+		
 		el.onclick = function() {
 			if (!share[service]) {
 				console.log("You need to define the share options for", service);
