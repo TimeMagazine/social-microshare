@@ -1,4 +1,4 @@
-module.exports = function(container_selector, services, opts) {
+let microshare = function(container_selector, services, opts) {
 	require("./styles.scss");
 
 	opts = opts || {};
@@ -97,3 +97,5 @@ module.exports = function(container_selector, services, opts) {
 		share: share
 	};
 }
+
+export { microshare }
