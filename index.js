@@ -34,6 +34,7 @@ let microshare = function(container_selector, services, opts) {
 
 	services.forEach(service => {
 		service = service.toLowerCase();
+		
 		if (!templates[service]) {
 			console.log("Couldn't find icon for", service + ". Options are", Object.keys(templates).join(","));
 			return;
@@ -62,12 +63,14 @@ let microshare = function(container_selector, services, opts) {
 			div.appendChild(el);
 		}
 		
-		el.onclick = function() {
-			if (!share[service]) {
-				console.log("You need to define the share options for", service);
-				return;
-			}
-			share[service]();
+		if (service === "twitter") {
+			el.onclick = function() {
+				if (!share[service]) {
+					console.log("You need to define the share options for", service);
+					return;
+				}
+				share[service]();
+			}			
 		}
 	});
 
